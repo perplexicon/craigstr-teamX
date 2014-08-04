@@ -1,0 +1,14 @@
+<div id="home">
+  <header>
+    <h1>Welcome to Craigstr</h1>
+  </header>
+
+  <div class="home-forms">
+    <div class="home-form">
+      <%= render "sign_in" %>
+    </div>
+    <div class="home-form">
+      <%= render "sign_up", user: @user %>
+    </div>
+  </div>
+</div>
