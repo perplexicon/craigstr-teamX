@@ -4,6 +4,6 @@
 
 <ul>
 <% @categories.each do |category| %>
-  <li><%= render @category %></li>
+  <li><%= link_to category.name, [@region, category] %></li>
 <% end %>
 </ul>

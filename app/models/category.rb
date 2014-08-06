@@ -1,4 +1,4 @@
 class Category < ActiveRecord::Base
-  belongs_to :regions
+  belongs_to :region
   validates :name, presence: true
 end
