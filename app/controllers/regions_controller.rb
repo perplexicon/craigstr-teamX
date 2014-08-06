@@ -7,3 +7,4 @@ class RegionsController < ApplicationController
     @region = Region.new
   end
 end
+
