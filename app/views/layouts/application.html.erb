@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Craigstr</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<% if signed_in? %>
-  Welcome <%= current_user.email %>
-<% end %>
+  <head>
+    <title>Craigstr</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <h3>
+      <% if signed_in? %>
+        Welcome <%= current_user.email %>
+      <% end %>
+    </h3>
 
-<%= yield %>
-
-</body>
+    <%= yield %>
+  </body>
 </html>
