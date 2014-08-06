@@ -1,0 +1,4 @@
+<%= div_for(post) do %>
+  <%= link_to post.name, [@region, @category, post] %>
+  <%= time_ago_in_words(post.created_at) %> ago
+<% end %>
