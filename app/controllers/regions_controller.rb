@@ -12,4 +12,3 @@ class RegionsController < ApplicationController
     @categories = @region.categories
   end
 end
-

@@ -6,12 +6,27 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
+  
   <body>
-    <h3>
-      <% if signed_in? %>
-        Welcome <%= current_user.email %>
-      <% end %>
-    </h3>
+    <header class="top-bar">
+      <h3>
+        <% if signed_in? %>
+          Welcome <%= current_user.email %>
+          <%= link_to "Home", root_path %>
+          <%= link_to "Sign out", sign_out_path, method: :delete %>
+          <% if current_user.admin? %>
+            Welcome, Admin!
+          <% end %>
+        <% else %>
+          Welcome Guest! 
+          <%= link_to "Sign In", sign_in_path %>
+          <%= link_to "Sign Up", sign_up_path %>
+        <% end %>
+      </h3>
+    </header>
+
+    <h2>Craigstr</h2>
+
     <%= yield %>
   </body>
 </html>
