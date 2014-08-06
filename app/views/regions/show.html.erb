@@ -1,4 +1,9 @@
-<h1>Categories</h1>
+<div>
+  <h1><%= @region.name %></h1>
+</div>
 
+<ul>
 <% @categories.each do |category| %>
-
+  <li><%= render @category %></li>
+<% end %>
+</ul>
