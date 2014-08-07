@@ -3,11 +3,6 @@ class RegionsController < ApplicationController
     @regions = Region.all
   end
 
-  def user
-    @user = User.all
-  end
-  
-
   def new
     @region = Region.new
   end
@@ -17,4 +12,3 @@ class RegionsController < ApplicationController
     @categories = @region.categories
   end
 end
-
