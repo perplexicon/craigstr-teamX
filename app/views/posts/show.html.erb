@@ -1,3 +1,18 @@
 <h1><%= @post.name %></h1>
-<h3>Posted under <%= link_to @region.name, @region %></h3>
+<h5>
+  <%= @post.user.email %> 
+  <%= time_ago_in_words(@post.created_at) %> ago
+</h5>
+<div>
+  <% if current_user == @post.user %>
+    <p> *** 
+    <%= link_to "Edit", edit_region_category_post_path(@region, @category, @post) %> *** 
+    <%= link_to "Delete", [@region, @category, @post], method: :delete, data: { confirm: "Are you sure?" } %> ***
+    </p>
+  <% end %>
+</div>
+<h3>Posted under 
+  <%= link_to @region.name, @region %> > 
+  <%= link_to @category.name, [@region, @category]%> 
+</h3>
 <p><%= @post.body %></p>

@@ -1,0 +1,9 @@
+<h1>Edit Post</h3>
+<h3>Posting under 
+  <%= link_to @region.name, @region %> > 
+  <%= link_to @category.name, [@region, @category] %>
+</h3>
+<%= form_for([@region, @category, @post]) do |form| %>
+  <%= render form %>
+  <%= form.submit "Post" %>
+<% end %>

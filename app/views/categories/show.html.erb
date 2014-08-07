@@ -1,0 +1,8 @@
+<h1>Listings for <%= @category.name %>:</h1>
+<h3>Posted under <%= link_to @region.name, @region %></h3>
+<div>
+  <% if signed_in? %>
+    <p> *** <%= link_to "New Post", new_region_category_post_path(@region, @category)%> *** </p>
+  <% end %>
+</div>
+<%= render @posts %>
