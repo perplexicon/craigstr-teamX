@@ -2,6 +2,10 @@
   <h1><%= @region.name %></h1>
 </div>
 
+<% if current_user.admin? %>
+  <%= link_to "New Category", new_region_category_path(@region) %>
+<% end %>
+
 <ul>
 <% @categories.each do |category| %>
   <li><%= link_to category.name, [@region, category] %></li>

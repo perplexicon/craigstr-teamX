@@ -1,6 +1,12 @@
 <h1>Regions</h1>
 <h2>Select your location:</h2>
 
+<% if current_user.admin? %>
+  <%= link_to "New Region", new_region_path  %>
+<% end %>
+
+<h3>Select your location:</h3>
+
 <div>
   <%= render @regions %>
 </div>
