@@ -13,11 +13,14 @@
       <% if signed_in? %>
         Welcome <%= current_user.email %>
         <%= link_to "Home", root_path %>
+        <% if current_user.admin? %>
+        Welcome, Admin!
         <%= link_to "Sign out", sign_out_path, method: :delete %>
-        <% else %>
+      <% else %>
         Welcome Guest! 
         <%= link_to "Sign In", sign_in_path %>
         <%= link_to "Sign Up", sign_up_path %>    
+        <% end %>
       <% end %>
     </h3>
   </header>

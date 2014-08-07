@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   get "sign-in" => "sessions#new"
   post "sign-in" => "sessions#create"
+  get "sign-in" => "regions#index"
+  post "sign-in" => "regions#create"
   delete "sign-out" => "sessions#destroy"
   get "sign-up" => "users#new"
   post "sign-up" => "users#create"
