@@ -7,5 +7,8 @@
     <p> *** <%= link_to "New Post", new_region_category_post_path(@region, @category)%> *** </p>
   </div>
 <% end %>
+  <div>
+  <%= paginate @posts %>
+</div>
 
 <%= render @posts %>
