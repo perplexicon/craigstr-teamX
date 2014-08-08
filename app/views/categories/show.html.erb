@@ -1,6 +1,6 @@
 <h1>Listings for <%= @category.name %>:</h1>
 
-<h3>Posted under <%= link_to @region.name, @region %></h3>
+<%= render "link_path", region: @region, category: nil %>
 
 <% if signed_in? %>
   <div>

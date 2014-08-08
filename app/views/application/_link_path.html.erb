@@ -1,0 +1,7 @@
+<h3>Posted under 
+  <%= link_to region.name, region %> 
+  <% if category %>
+    > 
+    <%= link_to category.name, [region, category]%> 
+  <% end %>
+</h3>

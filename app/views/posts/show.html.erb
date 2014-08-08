@@ -5,33 +5,12 @@
   <%= time_ago_in_words(@post.created_at) %> ago
 </h5>
 
-<div>
-  <p>***
-  <% if current_user && current_user.author_of?(@post) %>
-    <%= link_to "Edit", edit_region_category_post_path(@region, @category, @post) %> 
-    *** 
-    <%= link_to "Delete", [@region, @category, @post], method: :delete, data: { confirm: "Are you sure?" } %> 
-    ***
-  <% end %>
-  <% if current_user && current_user.spammed?(@post) %>
-    <%= link_to "Unflag", [@region, @category, @post, :spam], method: :delete %>
-    ***
-  <% elsif current_user %>
-    Flag as <%= link_to "SPAM", [@region, @category, @post, :spam], method: :post %> 
-    ***
-  <% end %>
-  <% if @post.spams.size > 0 %>
-    Flagged as spam by 
-    <%= pluralize(@post.spams.size, "Person") %>
-    ***
-  <% end %>
-  </p>
-</div>
+<%= render "post_toolbar", 
+  object: @post, 
+  route: [@region, @category, @post], 
+  edit_route: edit_region_category_post_path(@region, @category, @post),
+  spam_route: [@region, @category, @post, :spam] %>
 
-<h3>Posted under 
-  <%= link_to @region.name, @region %> 
-  > 
-  <%= link_to @category.name, [@region, @category]%> 
-</h3>
+  <%= render "link_path", region: @region, category: @category %>
 
-<p><%= @post.body %></p>
+  <p><%= @post.body %></p>

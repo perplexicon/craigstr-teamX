@@ -10,11 +10,11 @@ class User < ActiveRecord::Base
     posts.include?(post)
   end
 
-  def spam(post)
+  def flag(post)
     spammed_posts << post
   end
 
-  def unspam(post)
+  def unflag(post)
     spammed_posts.delete(post)
   end
 
