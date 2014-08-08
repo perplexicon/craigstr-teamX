@@ -1,12 +1,13 @@
 class CategoriesController < ApplicationController
-  def new 
-    @region = Region.find(params[:region_id])
+  def new
+    @region = find_region
     @category = Category.new
   end
-  
+
   def create
-    region = Region.find(params[:region_id])
-    category = Category.new(category_params)
+    region = find_region
+    category = region.categories.new(category_params)
+
     if category.save
       redirect_to [region, category]
     else
@@ -14,12 +15,18 @@ class CategoriesController < ApplicationController
     end
   end
 
- def show
-   @category = Category.find(params[:id])
-   @region = @category.region
- end 
+  def show
+    @region = find_region
+    @category = @region.categories.find(params[:id])
+    @posts = @category.posts
+  end
+
   private
-  
+
+  def find_region
+    Region.find(params[:region_id])
+  end
+
   def category_params
     params.
       require(:category).
