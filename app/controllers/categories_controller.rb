@@ -6,6 +6,6 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     @region = @category.region
-    @posts = @category.posts
+    @posts = @category.posts.page(params[:page])
   end
 end
